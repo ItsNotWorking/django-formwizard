@@ -106,14 +106,14 @@ class FormWizard(object):
         starts at the first step or wants to restart the process. The wizard
         will be resetted before rendering the first step.
         """
-        self.reset_wizard(request, storage)
+        #self.reset_wizard(request, storage)
 
         if 'extra_context' in kwargs:
             self.update_extra_context(request, storage,
                 kwargs['extra_context'])
 
         storage.set_current_step(self.get_first_step(request, storage))
-        return self.render(request, storage, self.get_form(request, storage))
+	return self.render(request, storage, self.get_form(request, storage, data=storage.get_step_data(self.determine_step(request, storage))))
 
     def process_post_request(self, request, storage, *args, **kwargs):
         """
@@ -193,7 +193,7 @@ class FormWizard(object):
                     form_key, form_obj, **kwargs)
             final_form_list.append(form_obj)
         done_response = self.done(request, storage, final_form_list, **kwargs)
-        self.reset_wizard(request, storage)
+        #self.reset_wizard(request, storage)
         return done_response
 
     def get_form_prefix(self, request, storage, step=None, form=None):
