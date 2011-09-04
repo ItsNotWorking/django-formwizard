@@ -232,7 +232,7 @@ class WizardView(TemplateView):
         #self.storage.reset()
 
         # reset the current step to the first step.
-        #self.storage.current_step = self.steps.first
+        self.storage.current_step = self.steps.first
         return self.render(self.get_form())
 
     def post(self, *args, **kwargs):
