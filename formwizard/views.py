@@ -229,7 +229,7 @@ class WizardView(TemplateView):
         just starts at the first step or wants to restart the process.
         The data of the wizard will be resetted before rendering the first step.
         """
-        self.storage.reset()
+        #self.storage.reset()
 
         # reset the current step to the first step.
         self.storage.current_step = self.steps.first
