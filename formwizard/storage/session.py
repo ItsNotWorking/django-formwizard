@@ -5,6 +5,7 @@ class SessionStorage(storage.BaseStorage):
 
     def __init__(self, *args, **kwargs):
         super(SessionStorage, self).__init__(*args, **kwargs)
+        print self.request.session
         if self.prefix not in self.request.session:
             self.init_data()
 
