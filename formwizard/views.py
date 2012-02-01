@@ -322,7 +322,7 @@ class WizardView(TemplateView):
         # response. This is needed to prevent from rendering done with the
         # same data twice.
         done_response = self.done(final_form_list, **kwargs)
-        self.storage.reset()
+        #self.storage.reset()
         return done_response
 
     def get_form_prefix(self, step=None, form=None):
